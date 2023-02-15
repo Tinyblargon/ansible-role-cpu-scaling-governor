@@ -1,0 +1,20 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: cpu_scaling_governor
+  author: Tinyblargon
+  description: Script for monitoring zfs with zabbix agent
+  license: MIT
+  min_ansible_version: '2.14.1'
+  platforms:
+    - name: Debian
+      versions:
+        - buster
+        - bullseye
+  galaxy_tags:
+    - cpu
+    - scaling
+    - governor
+    - scaling
+    - freqency

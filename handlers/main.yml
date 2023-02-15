@@ -1,0 +1,7 @@
+- name: Restart and enable scaling-governor
+  become: true
+  ansible.builtin.systemd:
+    daemon_reload: true
+    enabled: true
+    name: scaling-governor.service
+    state: restarted
