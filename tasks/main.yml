@@ -6,7 +6,7 @@
     owner: root
     group: root
     mode: '0644'
-  notify: Restart scaling-governor
+  notify: Restart and enable scaling-governor
 
 - name: Enable scaling-governor
   become: true
