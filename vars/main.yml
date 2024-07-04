@@ -1,0 +1,3 @@
+---
+cpu_scaling_governor_used: >-
+  {{ scaling_governor if scaling_governor != "" else cpu_scaling_governor }}
