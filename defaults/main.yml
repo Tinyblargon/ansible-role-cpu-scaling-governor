@@ -1,6 +1,3 @@
 ---
 cpu_scaling_governor: "performance"
 cpu_scaling_governor_state: "present"
-
-# Legacy
-scaling_governor: ""
