@@ -1,0 +1,17 @@
+---
+- name: Ensure scaling-governor service exists
+  become: true
+  ansible.builtin.template:
+    src: templates/scaling-governor.service.j2
+    dest: "{{ cpu_scaling_governor_service_file_location }}"
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart scaling-governor service
+
+- name: Ensure scaling-governor service is running and enabled
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    enabled: true
+    name: scaling-governor.service

@@ -1,3 +1,5 @@
 ---
 cpu_scaling_governor_used: >-
   {{ scaling_governor if scaling_governor != "" else cpu_scaling_governor }}
+cpu_scaling_governor_service_file_location: >-
+  "/etc/systemd/system/scaling-governor.service"
