@@ -1,0 +1,21 @@
+---
+- name: Check if scaling governor service exists
+  ansible.builtin.stat:
+    path: "{{ cpu_scaling_governor_service_file_location }}"
+  register: cpu_scaling_governor_service_file
+
+- name: Stop and disable scaling governor service
+  become: true
+  ansible.builtin.systemd:
+    state: stopped
+    enabled: false
+    name: scaling-governor.service
+  notify: Reload daemon
+  when: cpu_scaling_governor_service_file.stat.exists
+
+- name: Remove scaling governor service file
+  become: true
+  ansible.builtin.file:
+    dest: "{{ cpu_scaling_governor_service_file_location }}"
+    state: absent
+  when: cpu_scaling_governor_service_file.stat.exists
