@@ -1,2 +1,5 @@
 ---
-scaling_governor: "performance"
+cpu_scaling_governor: "performance"
+
+# Legacy
+scaling_governor: ""

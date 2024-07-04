@@ -8,9 +8,9 @@ None.
 
 ## Role Variables
 
-Available variables are listed below, along with default values (see `defaults/main.yml`):
-
-some possible values for `scaling_governor` can be found [here](https://www.kernel.org/doc/html/latest/admin-guide/pm/cpufreq.html#generic-scaling-governors)
+| **Variable Name**     | **Type**| **Default Value**| **Description**|
+| :---------------------| :------:| :---------------:| :--------------|
+| cpu_scaling_governor: | string  | "performance"    | the cpu scaling governor to use some possible values can be found [here](https://www.kernel.org/doc/html/latest/admin-guide/pm/cpufreq.html#generic-scaling-governors).|
 
 ## Dependencies
 
@@ -21,7 +21,9 @@ None.
 ```yaml
 - hosts: all
   roles:
-    - tinyblargon.cpu_scaling_governor
+    - Tinyblargon.cpu_scaling_governor
+      vars:
+        cpu_scaling_governor: "performance"
 ```
 
 ## License
