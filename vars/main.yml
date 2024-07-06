@@ -1,3 +1,4 @@
 ---
+cpu_scaling_governor_service_name: "scaling-governor.service"
 cpu_scaling_governor_service_file_location: >-
-  "/etc/systemd/system/scaling-governor.service"
+  "/etc/systemd/system/{{ cpu_scaling_governor_service_name }}"
