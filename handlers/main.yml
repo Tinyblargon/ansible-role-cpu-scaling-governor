@@ -4,10 +4,10 @@
   ansible.builtin.systemd:
     daemon_reload: true
 
-- name: Restart scaling-governor service
+- name: Start scaling-governor service
   become: true
   ansible.builtin.systemd:
     daemon_reload: true
     enabled: true
     name: "{{ cpu_scaling_governor_service_name }}"
-    state: restarted
+    state: started
