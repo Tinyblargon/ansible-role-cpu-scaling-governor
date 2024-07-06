@@ -9,7 +9,7 @@
   ansible.builtin.systemd:
     state: stopped
     enabled: false
-    name: scaling-governor.service
+    name: "{{ cpu_scaling_governor_service_name }}"
   notify: Reload daemon
   when: cpu_scaling_governor_service_file.stat.exists
 
