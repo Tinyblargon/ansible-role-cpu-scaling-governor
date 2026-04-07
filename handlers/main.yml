@@ -9,5 +9,5 @@
   ansible.builtin.systemd:
     daemon_reload: true
     enabled: true
-    name: "{{ cpu_scaling_governor_service_name }}"
+    name: "{{ cpu_scaling_governor_service_name_used }}"
     state: started

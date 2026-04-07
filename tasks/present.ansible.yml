@@ -6,7 +6,7 @@
     dest: "{{ cpu_scaling_governor_service_file_location }}"
     owner: root
     group: root
-    mode: '0644'
+    mode: "0644"
   notify: Start scaling-governor service
 
 - name: Ensure scaling-governor service is running and enabled
@@ -14,4 +14,4 @@
   ansible.builtin.systemd:
     enabled: true
     daemon_reload: true
-    name: "{{ cpu_scaling_governor_service_name }}"
+    name: "{{ cpu_scaling_governor_service_name_used }}"
