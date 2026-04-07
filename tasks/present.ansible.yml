@@ -1,4 +1,13 @@
 ---
+- name: Ensure service folder exists
+  become: true
+  ansible.builtin.file:
+    dest: "{{ cpu_scaling_governor_service_folder_used }}"
+    state: directory
+    owner: "{{ omit }}"
+    group: "{{ omit }}"
+    mode: "{{ omit }}"
+
 - name: Ensure scaling-governor service exists
   become: true
   ansible.builtin.template:
