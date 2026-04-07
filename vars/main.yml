@@ -2,3 +2,7 @@
 cpu_scaling_governor_service_name: "scaling-governor.service"
 cpu_scaling_governor_service_file_location: >-
   "/etc/systemd/system/{{ cpu_scaling_governor_service_name }}"
+
+cpu_scaling_governor_available_list: >-
+  {{ cpu_scaling_governor_available_raw.content
+    | b64decode | trim | split(' ') }}
