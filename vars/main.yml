@@ -8,3 +8,7 @@ cpu_scaling_governor_service_folder_used: >-
 cpu_scaling_governor_service_file_location: >-
   {{ cpu_scaling_governor_service_folder_used + '/'
     + cpu_scaling_governor_service_name_used }}
+
+cpu_scaling_governor_available_list: >-
+  {{ cpu_scaling_governor_available_raw.content
+    | b64decode | trim | split(' ') }}

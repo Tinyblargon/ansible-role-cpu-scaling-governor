@@ -1,4 +1,17 @@
 ---
+- name: Read available scaling governors
+  ansible.builtin.slurp:
+    path: /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
+  register: cpu_scaling_governor_available_raw
+
+- name: Fail when scaling governor is not available
+  ansible.builtin.debug:
+    msg: "{{ 'The specified cpu scaling governor (' + cpu_scaling_governor
+      + ') is not available on this system. Available governors are: '
+      + cpu_scaling_governor_available_list | join(', ') + '.' }}"
+  failed_when: true
+  when: cpu_scaling_governor not in cpu_scaling_governor_available_list
+
 - name: Ensure service folder exists
   become: true
   ansible.builtin.file:
