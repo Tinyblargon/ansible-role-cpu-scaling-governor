@@ -1,5 +1,7 @@
 # Ansible Role: cpu_scaling_governor
 
+[![CI](https://github.com/Tinyblargon/ansible-role-cpu-scaling-governor/actions/workflows/ci.yml/badge.svg)](https://github.com/Tinyblargon/ansible-role-cpu-scaling-governor/actions/workflows/ci.yml)
+
 Ansible role to set the cpu frequency scaling governor at startup
 
 ## Requirements
