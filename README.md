@@ -1,4 +1,4 @@
-# Ansible Role: cpu-scaling-governor
+# Ansible Role: cpu_scaling_governor
 
 Ansible role to set the cpu frequency scaling governor at startup
 
