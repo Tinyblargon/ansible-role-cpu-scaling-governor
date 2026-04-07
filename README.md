@@ -1,4 +1,6 @@
-# Ansible Role: cpu-scaling-governor
+# Ansible Role: cpu_scaling_governor
+
+[![CI](https://github.com/Tinyblargon/ansible-role-cpu-scaling-governor/actions/workflows/ci.yml/badge.svg)](https://github.com/Tinyblargon/ansible-role-cpu-scaling-governor/actions/workflows/ci.yml)
 
 Ansible role to set the cpu frequency scaling governor at startup
 
@@ -8,10 +10,10 @@ None.
 
 ## Role Variables
 
-| **Variable Name**           | **Type**| **Default Value**| **Description**|
-| :---------------------------| :------:| :---------------:| :--------------|
-| cpu_scaling_governor:       | string  | "performance"    | the cpu scaling governor to use some possible values can be found [here](https://www.kernel.org/doc/html/latest/admin-guide/pm/cpufreq.html#generic-scaling-governors).|
-| cpu_scaling_governor_state: | string  | "present"        | When `"present"` a systemd service will be added to set the cpu scaling governor at startup. When `"absent"` the systemd service will be removed.|
+| **Variable Name**           | **Type**| **Default Value**| **Description**
+|:----------------------------|:-------:|:----------------:|:---------------
+| cpu_scaling_governor:       | string  | "performance"    | the cpu scaling governor to use some possible values can be found in the [kernel scaling governors documentation](https://www.kernel.org/doc/html/latest/admin-guide/pm/cpufreq.html#generic-scaling-governors).
+| cpu_scaling_governor_state: | string  | "present"        | When `"present"` a systemd service will be added to set the cpu scaling governor at startup. When `"absent"` the systemd service will be removed.
 
 ## Dependencies
 
@@ -22,7 +24,7 @@ None.
 ```yaml
 - hosts: all
   roles:
-    - Tinyblargon.cpu_scaling_governor
+    - tinyblargon.cpu_scaling_governor
       vars:
         cpu_scaling_governor: "performance"
         cpu_scaling_governor_state: "present"
