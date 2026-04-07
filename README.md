@@ -22,7 +22,7 @@ None.
 ```yaml
 - hosts: all
   roles:
-    - Tinyblargon.cpu_scaling_governor
+    - tinyblargon.cpu_scaling_governor
       vars:
         cpu_scaling_governor: "performance"
         cpu_scaling_governor_state: "present"
