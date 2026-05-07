@@ -1,7 +1,13 @@
 ---
-cpu_scaling_governor_service_name: "scaling-governor.service"
+cpu_scaling_governor_service_name_used: >-
+  {{ cpu_scaling_governor_service_name | regex_replace('.service$', '')
+    + '.service' }}
+cpu_scaling_governor_service_folder_used: >-
+  {{ cpu_scaling_governor_service_folder | regex_replace('/$', '') }}
+
 cpu_scaling_governor_service_file_location: >-
-  "/etc/systemd/system/{{ cpu_scaling_governor_service_name }}"
+  {{ cpu_scaling_governor_service_folder_used + '/'
+    + cpu_scaling_governor_service_name_used }}
 
 cpu_scaling_governor_available_list: >-
   {{ cpu_scaling_governor_available_raw.content

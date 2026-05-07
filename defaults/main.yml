@@ -1,3 +1,9 @@
 ---
 cpu_scaling_governor: "performance"
 cpu_scaling_governor_state: "present"
+
+# Advanced settings, not documented in the README.
+# Can be used to change the service name and location if needed.
+# Does not play nice with existing services, so be careful when changing these.
+cpu_scaling_governor_service_name: "cpu-scaling-governor"
+cpu_scaling_governor_service_folder: "/etc/systemd/system"
