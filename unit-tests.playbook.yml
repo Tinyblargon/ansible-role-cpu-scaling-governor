@@ -1,0 +1,11 @@
+---
+- name: Run unit tests
+  hosts: localhost
+  gather_facts: false
+  vars:
+    cpu_scaling_governor_ci_ignore: false
+  tasks:
+    - name: Run unit tests
+      ansible.builtin.include_role:
+        name: ansible-role-cpu-scaling-governor
+        tasks_from: unit-tests/main.ansible.yml

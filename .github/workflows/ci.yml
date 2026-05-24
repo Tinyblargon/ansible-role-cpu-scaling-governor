@@ -11,28 +11,51 @@ name: CI
     paths-ignore:
       - '*.md'
       - '.gitignore'
+  schedule:
+    - cron: "0 9 * * 1"
 
-defaults:
-  run:
-    working-directory: 'Tinyblargon.cpu_scaling_governor'
 
 jobs:
 
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 'Tinyblargon.cpu_scaling_governor'
     steps:
       - name: Check out the codebase.
-        uses: actions/checkout@v2
+        uses: actions/checkout@v5
         with:
           path: 'Tinyblargon.cpu_scaling_governor'
 
       - name: Set up Python 3.
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
       - name: Install test dependencies.
         run: pip3 install ansible-lint
+      - name: Log tool info
+        run: make ansible_lint_info
       - name: Lint code.
-        run: ansible-lint
+        run: make lint
+
+  unit-tests:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v5
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install test dependencies.
+        run: pip3 install ansible
+      - name: Log tool info
+        run: make ansible_info
+      - name: Run unit test playbook.
+        run: make unit_test
