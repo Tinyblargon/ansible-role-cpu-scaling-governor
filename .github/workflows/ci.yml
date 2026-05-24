@@ -14,15 +14,15 @@ name: CI
   schedule:
     - cron: "0 9 * * 1"
 
-defaults:
-  run:
-    working-directory: 'Tinyblargon.cpu_scaling_governor'
 
 jobs:
 
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 'Tinyblargon.cpu_scaling_governor'
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v5
