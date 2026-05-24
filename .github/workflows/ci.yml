@@ -11,6 +11,8 @@ name: CI
     paths-ignore:
       - '*.md'
       - '.gitignore'
+  schedule:
+    - cron: "0 9 * * 1"
 
 defaults:
   run:
