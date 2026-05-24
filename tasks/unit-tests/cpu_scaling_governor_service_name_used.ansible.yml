@@ -1,0 +1,19 @@
+---
+- name: Test cpu_scaling_governor_service_name_used
+  ansible.builtin.assert:
+    that: cpu_scaling_governor_service_name_used == test_item.output
+    fail_msg: >-
+      {{ 'Test: ' + test_item.name + ', Expected: ' + test_item.output | string
+      + ' , but got: ' + cpu_scaling_governor_service_name_used | string }}
+  loop:
+    - name: no suffix
+      output: cpu-scaling-governor.service
+      input: cpu-scaling-governor
+    - name: has suffix
+      output: cpu-scaling-governor.service
+      input: cpu-scaling-governor.service
+  loop_control:
+    loop_var: test_item
+  vars:
+    cpu_scaling_governor_service_name: "{{ test_item.input }}"
+  ignore_errors: "{{ cpu_scaling_governor_ci_ignore }}"

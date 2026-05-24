@@ -1,9 +1,9 @@
 ---
 cpu_scaling_governor_service_name_used: >-
-  {{ cpu_scaling_governor_service_name | regex_replace('.service$', '')
+  {{ cpu_scaling_governor_service_name | regex_replace('\.service$', '')
     + '.service' }}
 cpu_scaling_governor_service_folder_used: >-
-  {{ cpu_scaling_governor_service_folder | regex_replace('/$', '') }}
+  {{ cpu_scaling_governor_service_folder | regex_replace('\/$', '') }}
 
 cpu_scaling_governor_service_file_location: >-
   {{ cpu_scaling_governor_service_folder_used + '/'

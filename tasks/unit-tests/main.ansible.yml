@@ -1,0 +1,8 @@
+---
+- name: Test cpu_scaling_governor_service_folder_used
+  ansible.builtin.import_tasks:
+    file: unit-tests/cpu_scaling_governor_service_folder_used.ansible.yml
+
+- name: Test cpu_scaling_governor_service_name_used
+  ansible.builtin.import_tasks:
+    file: unit-tests/cpu_scaling_governor_service_name_used.ansible.yml
