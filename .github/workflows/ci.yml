@@ -37,9 +37,9 @@ jobs:
       - name: Install test dependencies.
         run: pip3 install ansible-lint
       - name: Log tool info
-        run: make info
+        run: make ansible_lint_info
       - name: Lint code.
-        run: ansible-lint
+        run: make lint
 
   unit-tests:
     name: Unit tests
@@ -56,6 +56,6 @@ jobs:
       - name: Install test dependencies.
         run: pip3 install ansible
       - name: Log tool info
-        run: make info
+        run: make ansible_info
       - name: Run unit test playbook.
         run: make unit_test
