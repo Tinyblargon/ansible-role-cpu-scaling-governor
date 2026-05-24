@@ -1,4 +1,12 @@
 
+.PHONY: all
+all:
+
+.PHONY: info
+info:
+	@ansible --version ;\
+		ansible-lint --version
+
 .PHONY: unit_test
 unit_test:
 	@export ANSIBLE_ROLES_PATH="$$(dirname "$$(pwd)")" ;\
